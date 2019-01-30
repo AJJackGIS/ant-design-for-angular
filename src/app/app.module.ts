@@ -12,6 +12,7 @@ import zh from '@angular/common/locales/zh';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ButtonComponent } from './demo/button/button.component';
 import { EchartsComponent } from './demo/echarts/echarts.component';
+import { LeafletComponent } from './map/leaflet/leaflet.component';
 
 registerLocaleData(zh);
 
@@ -19,7 +20,8 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     ButtonComponent,
-    EchartsComponent
+    EchartsComponent,
+    LeafletComponent
   ],
   imports: [
     BrowserModule,
