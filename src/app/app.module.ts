@@ -13,6 +13,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { ButtonComponent } from './demo/button/button.component';
 import { EchartsComponent } from './demo/echarts/echarts.component';
 import { LeafletComponent } from './map/leaflet/leaflet.component';
+import { BdmapComponent } from './map/bdmap/bdmap.component';
+import { OpenlayersComponent } from './map/openlayers/openlayers.component';
 
 registerLocaleData(zh);
 
@@ -21,7 +23,9 @@ registerLocaleData(zh);
     AppComponent,
     ButtonComponent,
     EchartsComponent,
-    LeafletComponent
+    LeafletComponent,
+    BdmapComponent,
+    OpenlayersComponent
   ],
   imports: [
     BrowserModule,
