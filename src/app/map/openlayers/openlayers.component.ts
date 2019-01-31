@@ -5,10 +5,10 @@ import Overlay from 'ol/Overlay';
 import Vector from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import TileLayer from 'ol/layer/Tile';
-import XYZ from 'ol/source/XYZ.js';
-import {fromLonLat, transform} from 'ol/proj';
+import XYZ from 'ol/source/XYZ';
+import {fromLonLat, transform} from 'ol/proj.js';
 import {Style, Fill, Stroke, Text} from 'ol/style';
-import {toStringHDMS} from 'ol/coordinate';
+import {toStringHDMS} from 'ol/coordinate.js';
 import GeoJSON from 'ol/format/GeoJSON';
 
 @Component({

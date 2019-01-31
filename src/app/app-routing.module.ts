@@ -5,6 +5,7 @@ import {EchartsComponent} from './demo/echarts/echarts.component';
 import {LeafletComponent} from './map/leaflet/leaflet.component';
 import {BdmapComponent} from './map/bdmap/bdmap.component';
 import {OpenlayersComponent} from './map/openlayers/openlayers.component';
+import {CesiumComponent} from './map/cesium/cesium.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/mile', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'map',  children: [
       { path: 'leaflet', component: LeafletComponent },
       { path: 'ol', component: OpenlayersComponent },
+      { path: 'cesium', component: CesiumComponent },
       { path: 'bdmap', component: BdmapComponent }]
   },
 ];

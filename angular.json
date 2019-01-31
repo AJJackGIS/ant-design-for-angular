@@ -25,14 +25,22 @@
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                 "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/cesium/Build/Cesium/",
+                "output": "/assets/Cesium/"
               }
             ],
             "styles": [
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/cesium/Build/Cesium/Widgets/widgets.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/cesium/Build/Cesium/Cesium.js"
+            ]
           },
           "configurations": {
             "production": {
