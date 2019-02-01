@@ -1,0 +1,50 @@
+<nz-layout class="layout">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
+    <div class="logo">
+      <nz-avatar nzIcon="user"></nz-avatar>
+      <h4 style="color: white; margin-top: 20px">张三丰</h4>
+    </div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item (click)="navigateTo('dashboard')">
+        <span title><i nz-icon type="dashboard"></i><span class="nav-text">仪表盘</span></span>
+      </li>
+      <li nz-submenu>
+        <span title><i nz-icon type="html5"></i><span class="nav-text">地图</span></span>
+        <ul>
+          <li nz-menu-item (click)="navigateTo('map/leaflet')">Leaflet地图页面</li>
+          <li nz-menu-item (click)="navigateTo('map/ol')">OpenLayers地图页面</li>
+          <li nz-menu-item (click)="navigateTo('map/cesium')">Cesium地图页面</li>
+          <li nz-menu-item (click)="navigateTo('map/bdmap')">百度图表地图页面</li>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i nz-icon type="team"></i><span class="nav-text">组建</span></span>
+        <ul>
+          <li nz-menu-item (click)="navigateTo('button')">按钮</li>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i nz-icon type="team"></i><span class="nav-text">插件</span></span>
+        <ul>
+          <li nz-menu-item (click)="navigateTo('charts')">图表</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;">
+      <i class="trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="isCollapsed=!isCollapsed"></i>
+      <span style="font-size: 24px;font-family: inherit;">Angular地图集合</span>
+    </nz-header>
+    <nz-content style="margin:0 16px;">
+      <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item>User</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <div style="background: #fff; height: 100%;min-height: 600px">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>
