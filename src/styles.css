@@ -1,3 +1,13 @@
 body{
-  padding: 20px;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  cursor: default;
+}
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: #001529!important;
+  box-shadow: none!important;
 }
