@@ -19,7 +19,7 @@ export class BdmapComponent implements OnInit {
 
   ngOnInit() {
     const mydata = [
-      {name: '武汉市', value: '100'},
+      {name: '武汉市', value: this.randomData()},
       {name: '十堰市', value: this.randomData()},
       {name: '黄石市', value: this.randomData()},
       {name: '宜昌市', value: this.randomData()},
@@ -39,11 +39,13 @@ export class BdmapComponent implements OnInit {
     ];
 
     this.regionOptions = {
-      backgroundColor: '#000000',
+      backgroundColor: '#CCCCCC',
       title: {
         text: '湖北省春节城市热度值',
         subtext: '',
-        x: 'center',
+        left: 'center',
+        top: 'top',
+        padding: 20,
         textStyle: {
           color: '#ffffff'
         }
@@ -78,13 +80,21 @@ export class BdmapComponent implements OnInit {
           type: 'map',
           mapType: '湖北',
           roam: true,
+          label: {
+            show: true,
+            color: 'white',
+            fontSize: 14,
+            fontFamily: 'Courier New'
+          },
           itemStyle: {
-            normal: {
-              areaColor: '#AAD5FF',
-              borderColor: 'white',
-              label: {show: true, color: 'white'}
+            areaColor: '#AAD5FF',
+            borderColor: 'white'
+          },
+          emphasis: {
+            label: {
+              fontSize: 16
             },
-            emphasis: {
+            itemStyle: {
               borderColor: '#fff',
               borderWidth: 1
             }
