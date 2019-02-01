@@ -16,6 +16,7 @@ import { LeafletComponent } from './map/leaflet/leaflet.component';
 import { BdmapComponent } from './map/bdmap/bdmap.component';
 import { OpenlayersComponent } from './map/openlayers/openlayers.component';
 import { CesiumComponent } from './map/cesium/cesium.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 registerLocaleData(zh);
 
@@ -27,7 +28,8 @@ registerLocaleData(zh);
     LeafletComponent,
     BdmapComponent,
     OpenlayersComponent,
-    CesiumComponent
+    CesiumComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

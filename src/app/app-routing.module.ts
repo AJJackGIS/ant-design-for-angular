@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {ButtonComponent} from './demo/button/button.component';
 import {EchartsComponent} from './demo/echarts/echarts.component';
 import {LeafletComponent} from './map/leaflet/leaflet.component';
@@ -8,7 +9,8 @@ import {OpenlayersComponent} from './map/openlayers/openlayers.component';
 import {CesiumComponent} from './map/cesium/cesium.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/mile', pathMatch: 'full'},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'button', component: ButtonComponent},
   {path: 'charts', component: EchartsComponent},
   {path: 'map',  children: [

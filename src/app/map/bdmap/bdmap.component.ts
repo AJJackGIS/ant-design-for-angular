@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import * as echarts from 'echarts';
+import 'echarts/map/js/province/hubei.js';
 
 @Component({
   selector: 'app-bdmap',
@@ -11,18 +10,46 @@ export class BdmapComponent implements OnInit {
 
   regionOptions = null;
 
-  constructor(private http: HttpClient) {
+  constructor() {
+  }
+
+  randomData() {
+    return Math.round(Math.random() * 500);
   }
 
   ngOnInit() {
-    this.http.get('assets/countries.geo.json')
-      .subscribe(geoJson => {
-        echarts.registerMap('China', geoJson);
-      });
+    const mydata = [
+      {name: '武汉市', value: '100'},
+      {name: '十堰市', value: this.randomData()},
+      {name: '黄石市', value: this.randomData()},
+      {name: '宜昌市', value: this.randomData()},
+      {name: '襄阳市', value: this.randomData()},
+      {name: '鄂州市', value: this.randomData()},
+      {name: '荆门市', value: this.randomData()},
+      {name: '孝感市', value: this.randomData()},
+      {name: '荆州市', value: this.randomData()},
+      {name: '黄冈市', value: this.randomData()},
+      {name: '咸宁市', value: this.randomData()},
+      {name: '随州市', value: this.randomData()},
+      {name: '恩施土家族苗族自治州', value: this.randomData()},
+      {name: '仙桃市', value: this.randomData()},
+      {name: '潜江市', value: this.randomData()},
+      {name: '天门市', value: this.randomData()},
+      {name: '神农架林区', value: this.randomData()}
+    ];
+
     this.regionOptions = {
+      backgroundColor: '#000000',
+      title: {
+        text: '湖北省春节城市热度值',
+        subtext: '',
+        x: 'center',
+        textStyle: {
+          color: '#ffffff'
+        }
+      },
       tooltip: {
-        trigger: 'item',
-        formatter: '{b}：{c}'
+        trigger: 'item'
       },
       toolbox: {
         show: true,
@@ -35,20 +62,34 @@ export class BdmapComponent implements OnInit {
           saveAsImage: {}
         }
       },
+      visualMap: {
+        type: 'continuous',
+        min: 0,
+        max: 500,
+        left: 'left',
+        top: 'bottom',
+        text: ['高', '低'],
+        calculable: true,
+        color: ['orangered', 'yellow', 'lightskyblue']
+      },
       series: [
         {
+          name: '热点',
           type: 'map',
-          mapType: 'China',
+          mapType: '湖北',
+          roam: true,
           itemStyle: {
             normal: {
               areaColor: '#AAD5FF',
               borderColor: 'white',
-              label: { show: true, color: 'white' }
+              label: {show: true, color: 'white'}
             },
             emphasis: {
-              areaColor: '#A5DABB'
+              borderColor: '#fff',
+              borderWidth: 1
             }
-          }
+          },
+          data: mydata
         }
       ]
     };
