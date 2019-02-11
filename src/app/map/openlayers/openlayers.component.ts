@@ -81,7 +81,7 @@ export class OpenlayersComponent implements OnInit {
       element: container,
       autoPan: true,
       autoPanAnimation: {
-        source: [0,0],
+        source: [0, 0],
         duration: 250   // 当Popup超出地图边界时，为了Popup全部可见，地图移动的速度. 单位为毫秒（ms）
       }
     });

@@ -18,6 +18,7 @@ import { OpenlayersComponent } from './map/openlayers/openlayers.component';
 import { CesiumComponent } from './map/cesium/cesium.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LayoutComponent } from './pages/layout/layout.component';
+import { MaptalksComponent } from './map/maptalks/maptalks.component';
 
 registerLocaleData(zh);
 
@@ -31,7 +32,8 @@ registerLocaleData(zh);
     OpenlayersComponent,
     CesiumComponent,
     DashboardComponent,
-    LayoutComponent
+    LayoutComponent,
+    MaptalksComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import {BdmapComponent} from './map/bdmap/bdmap.component';
 import {OpenlayersComponent} from './map/openlayers/openlayers.component';
 import {CesiumComponent} from './map/cesium/cesium.component';
 import {LayoutComponent} from './pages/layout/layout.component';
+import {MaptalksComponent} from './map/maptalks/maptalks.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -27,7 +28,8 @@ const routes: Routes = [
       {path: 'leaflet', component: LeafletComponent},
       {path: 'ol', component: OpenlayersComponent},
       {path: 'cesium', component: CesiumComponent},
-      {path: 'bdmap', component: BdmapComponent}
+      {path: 'bdmap', component: BdmapComponent},
+      {path: 'maptalks', component: MaptalksComponent}
     ]
   },
 ];
