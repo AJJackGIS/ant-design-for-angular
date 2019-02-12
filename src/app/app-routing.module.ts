@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
-import {ButtonComponent} from './demo/button/button.component';
-import {EchartsComponent} from './demo/echarts/echarts.component';
+import {ButtonComponent} from './component/button/button.component';
+import {EchartsComponent} from './plugin/echarts/echarts.component';
 import {LeafletComponent} from './map/leaflet/leaflet.component';
 import {BdmapComponent} from './map/bdmap/bdmap.component';
 import {OpenlayersComponent} from './map/openlayers/openlayers.component';
