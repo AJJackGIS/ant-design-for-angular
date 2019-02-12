@@ -1,3 +1,105 @@
-<p>
-  card works!
-</p>
+<div>
+  <div nz-row [nzGutter]="16">
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" nzLg="8" nzXl="8" style="margin-bottom: 16px">
+      <nz-card nzTitle="典型卡片" [nzExtra]="extraTemplate">
+        <p>包含标题、内容、操作区域。</p>
+      </nz-card>
+      <ng-template #extraTemplate>
+        <a>更多...</a>
+      </ng-template>
+      <br>
+      <nz-card>
+        <p>简洁卡片,没有标题、操作区域</p>
+      </nz-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" nzLg="8" nzXl="8" style="margin-bottom: 16px">
+      <nz-card nzHoverable [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="图片展示卡片" nzDescription="图表描述信息"></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>
+      </ng-template>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" nzLg="8" nzXl="8" style="margin-bottom: 16px">
+      <nz-switch [(ngModel)]="loading" style="margin-bottom: 10px"></nz-switch>
+      <nz-card nzHoverable [nzLoading]="loading">
+        <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="头像名称" nzDescription="头像说明"></nz-card-meta>
+      </nz-card>
+      <br>
+      <nz-card nzHoverable [nzActions]="[actionSetting,actionEdit,actionEllipsis]">
+        <nz-skeleton [nzLoading]="loading" nzActive="true" nzAvatar="true" nzParagraph="true" nzTitle="true">
+          <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="头像名称" nzDescription="头像说明"></nz-card-meta>
+        </nz-skeleton>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+      </ng-template>
+      <ng-template #actionSetting>
+        <i nz-icon type="setting"></i>
+      </ng-template>
+      <ng-template #actionEdit>
+        <i nz-icon type="edit"></i>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <i nz-icon type="ellipsis"></i>
+      </ng-template>
+    </div>
+  </div>
+  <div nz-row nzGutter="16">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" style="margin-bottom: 16px">
+      <nz-card nzTitle="网格型内嵌卡片">
+        <div nz-card-grid [ngStyle]="gridStyle">Content</div>
+        <div nz-card-grid [ngStyle]="gridStyle">Content</div>
+        <div nz-card-grid [ngStyle]="gridStyle">Content</div>
+        <div nz-card-grid [ngStyle]="gridStyle">Content</div>
+        <div nz-card-grid [ngStyle]="gridStyle">Content</div>
+        <div nz-card-grid [ngStyle]="gridStyle">Content</div>
+        <div nz-card-grid [ngStyle]="gridStyle">Content</div>
+      </nz-card>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16">
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" nzLg="8" nzXl="8" style="margin-bottom: 16px">
+      <nz-card nzTitle="内嵌卡片">
+        <p>卡片内容</p>
+        <nz-card nzType="inner" nzTitle="标题">
+          <p>内容</p>
+        </nz-card>
+        <br>
+        <nz-card nzType="inner" nzTitle="标题" [nzExtra]="extraTemplate">
+          <p>内容</p>
+        </nz-card>
+      </nz-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="8" nzLg="8" nzXl="8" style="margin-bottom: 16px">
+      <nz-card [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+        <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="头像名称" nzDescription="头像说明"></nz-card-meta>
+      </nz-card>
+    </div>
+  </div>
+  <div nz-row nzGutter="16">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" style="margin-bottom: 16px">
+      <nz-card nzTitle="标题">
+        <nz-card-tab>
+          <nz-tabset [(nzSelectedIndex)]="index" (nzSelectChange)="indexChange()">
+            <nz-tab nzTitle="TAB1"></nz-tab>
+            <nz-tab nzTitle="TAB2"></nz-tab>
+            <nz-tab nzTitle="TAB3"></nz-tab>
+          </nz-tabset>
+        </nz-card-tab>
+        {{indexContent}}
+      </nz-card>
+      <br>
+      <nz-card>
+        <nz-card-tab>
+          <nz-tabset nzSize="large" [(nzSelectedIndex)]="index" (nzSelectChange)="indexChange()">
+            <nz-tab nzTitle="TAB1"></nz-tab>
+            <nz-tab nzTitle="TAB2"></nz-tab>
+            <nz-tab nzTitle="TAB3"></nz-tab>
+          </nz-tabset>
+        </nz-card-tab>
+        无卡片标题的需要设置TAB标题为大号的{{indexContent}}
+      </nz-card>
+    </div>
+  </div>
+</div>

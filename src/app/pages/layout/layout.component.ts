@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   isCollapsed = false;
-  containerHeight = '';
+  containerHeight = null;
 
   constructor() {
   }
