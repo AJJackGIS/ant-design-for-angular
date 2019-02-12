@@ -9,6 +9,7 @@ import {OpenlayersComponent} from './map/openlayers/openlayers.component';
 import {CesiumComponent} from './map/cesium/cesium.component';
 import {LayoutComponent} from './pages/layout/layout.component';
 import {MaptalksComponent} from './map/maptalks/maptalks.component';
+import {CardComponent} from './component/card/card.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -16,9 +17,15 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      {path: 'dashboard', component: DashboardComponent},
+      {path: 'dashboard', component: DashboardComponent}
+    ]
+  },
+  {
+    path: 'component',
+    component: LayoutComponent,
+    children: [
       {path: 'button', component: ButtonComponent},
-      {path: 'charts', component: EchartsComponent}
+      {path: 'card', component: CardComponent}
     ]
   },
   {
@@ -30,6 +37,13 @@ const routes: Routes = [
       {path: 'cesium', component: CesiumComponent},
       {path: 'bdmap', component: BdmapComponent},
       {path: 'maptalks', component: MaptalksComponent}
+    ]
+  },
+  {
+    path: 'plugin',
+    component: LayoutComponent,
+    children: [
+      {path: 'charts', component: EchartsComponent}
     ]
   },
 ];
