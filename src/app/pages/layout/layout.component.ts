@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -9,21 +8,16 @@ import {Router} from '@angular/router';
 export class LayoutComponent implements OnInit {
 
   isCollapsed = false;
+  containerHeight = '';
 
-  containerHeight = '400px';
-
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.containerHeight = window.innerHeight - 186 + 'px';
-  }
-
-  navigateTo(routeName, ...params) {
-    console.log(routeName);
-    console.log(params);
-    const commands = [routeName].concat(params);
-    this.router.navigate(commands);
+    this.containerHeight = window.innerHeight - 146 + 'px';
+    window.onresize = () => {
+      this.containerHeight = window.innerHeight - 146 + 'px';
+    };
   }
 
 }

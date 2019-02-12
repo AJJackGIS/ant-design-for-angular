@@ -1,4 +1,4 @@
-:host ::ng-deep .trigger {
+.trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 24px;
@@ -6,15 +6,55 @@
   transition: color .3s;
 }
 
-:host ::ng-deep .trigger:hover {
+.trigger:hover {
   color: #1890ff;
 }
 
-:host ::ng-deep .logo {
-  text-align: center;
-  margin: 16px;
+.layout {
+  min-width: 1024px;
 }
 
-.layout {
-  min-height: 100%;
+.logo {
+  text-align: center;
+  margin: 16px 0px;
+}
+
+nz-avatar {
+  width: 64px;
+  height: 64px;
+}
+
+nz-content {
+  margin: 0 16px
+}
+
+nz-header {
+  background: #fff;
+  padding: 0
+}
+
+nz-header span {
+  font-size: 24px;
+  font-family: inherit;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+.contentBody {
+  background: #fff;
+  padding: 16px;
+  min-height: 600px;
+}
+
+nz-footer {
+  text-align: center;
+  padding: 4px 50px;
+}
+
+.name {
+  color: white;
+  margin-top: 20px;
+  font-size: 18px;
 }
