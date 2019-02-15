@@ -10,6 +10,8 @@ import {CesiumComponent} from './map/cesium/cesium.component';
 import {LayoutComponent} from './pages/layout/layout.component';
 import {MaptalksComponent} from './map/maptalks/maptalks.component';
 import {CardComponent} from './component/card/card.component';
+import {DropdownComponent} from './component/dropdown/dropdown.component';
+import {MenuComponent} from './component/menu/menu.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -17,35 +19,22 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      {path: 'dashboard', component: DashboardComponent}
+      {path: 'dashboard', component: DashboardComponent},
+
+      {path: 'component/button', component: ButtonComponent},
+      {path: 'component/card', component: CardComponent},
+      {path: 'component/dropdown', component: DropdownComponent},
+      {path: 'component/menu', component: MenuComponent},
+
+      {path: 'map/leaflet', component: LeafletComponent},
+      {path: 'map/ol', component: OpenlayersComponent},
+      {path: 'map/cesium', component: CesiumComponent},
+      {path: 'map/bdmap', component: BdmapComponent},
+      {path: 'map/maptalks', component: MaptalksComponent},
+
+      {path: 'plugin/charts', component: EchartsComponent}
     ]
-  },
-  {
-    path: 'component',
-    component: LayoutComponent,
-    children: [
-      {path: 'button', component: ButtonComponent},
-      {path: 'card', component: CardComponent}
-    ]
-  },
-  {
-    path: 'map',
-    component: LayoutComponent,
-    children: [
-      {path: 'leaflet', component: LeafletComponent},
-      {path: 'ol', component: OpenlayersComponent},
-      {path: 'cesium', component: CesiumComponent},
-      {path: 'bdmap', component: BdmapComponent},
-      {path: 'maptalks', component: MaptalksComponent}
-    ]
-  },
-  {
-    path: 'plugin',
-    component: LayoutComponent,
-    children: [
-      {path: 'charts', component: EchartsComponent}
-    ]
-  },
+  }
 ];
 
 @NgModule({

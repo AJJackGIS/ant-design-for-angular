@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-zorro-app": {
+    "ant-design-for-angular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-zorro-app",
+            "outputPath": "dist/ant-design-for-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-zorro-app:build"
+            "browserTarget": "ant-design-for-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-zorro-app:build:production"
+              "browserTarget": "ant-design-for-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-zorro-app:build"
+            "browserTarget": "ant-design-for-angular:build"
           }
         },
         "test": {
@@ -118,7 +118,7 @@
         }
       }
     },
-    "my-zorro-app-e2e": {
+    "ant-design-for-angular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -127,11 +127,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "my-zorro-app:serve"
+            "devServerTarget": "ant-design-for-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "my-zorro-app:serve:production"
+              "devServerTarget": "ant-design-for-angular:serve:production"
             }
           }
         },
@@ -147,5 +147,5 @@
       }
     }
   },
-  "defaultProject": "my-zorro-app"
+  "defaultProject": "ant-design-for-angular"
 }

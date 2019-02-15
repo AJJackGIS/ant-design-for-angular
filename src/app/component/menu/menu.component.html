@@ -1,0 +1,33 @@
+<nz-card [nzTitle]="'水平的顶部导航菜单'">
+  <ul nz-menu [nzMode]="'horizontal'">
+    <li nz-menu-item><i nz-icon type="mail"></i>普通菜单</li>
+    <li nz-menu-item nzDisabled><i nz-icon type="appstore"></i>普通菜单</li>
+    <li nz-submenu>
+      <span title><i nz-icon type="setting"></i>普通菜单-下拉</span>
+      <ul>
+        <li nz-menu-group>
+          <span title>第一组</span>
+          <ul>
+            <li nz-menu-item>菜单一</li>
+            <li nz-menu-item>菜单二</li>
+          </ul>
+        </li>
+        <li nz-menu-group>
+          <span title>第二组</span>
+          <ul>
+            <li nz-menu-item>菜单一</li>
+            <li nz-menu-item>菜单二</li>
+            <li nz-submenu>
+              <span title>下级菜单</span>
+              <ul>
+                <li nz-menu-item nzDisabled>菜单一</li>
+                <li nz-menu-item>菜单二</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li nz-menu-item><a href="https://www.baidu.com" target="_blank"></a>普通菜单-链接</li>
+  </ul>
+</nz-card>

@@ -20,6 +20,8 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {LayoutComponent} from './pages/layout/layout.component';
 import {MaptalksComponent} from './map/maptalks/maptalks.component';
 import {CardComponent} from './component/card/card.component';
+import { DropdownComponent } from './component/dropdown/dropdown.component';
+import { MenuComponent } from './component/menu/menu.component';
 
 registerLocaleData(zh);
 
@@ -35,7 +37,9 @@ registerLocaleData(zh);
     DashboardComponent,
     LayoutComponent,
     MaptalksComponent,
-    CardComponent
+    CardComponent,
+    DropdownComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,149 @@
+<nz-card [nzTitle]="'基本下拉框'">
+  <nz-dropdown>
+    <a nz-dropdown>移入我 <i nz-icon type="down"></i></a>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item nzDisabled>菜单四</li>
+      <li nz-menu-item (click)="log()">菜单五</li>
+      <li nz-submenu>
+        <span title>多级下拉框</span>
+        <ul>
+          <li nz-menu-item>菜单一</li>
+          <li nz-menu-item>菜单二</li>
+        </ul>
+      </li>
+      <li nz-submenu nzDisabled>
+        <span title>多级下拉框</span>
+        <ul>
+          <li nz-menu-item>菜单一</li>
+          <li nz-menu-item>菜单二</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-dropdown>
+</nz-card>
+
+<nz-card [nzTitle]="'右键菜单'">
+  <div style="background-color: gray; text-align: center; padding: 32px" (contextmenu)="contextMenu($event,template)">
+    <ng-template #template>
+      <ul nz-menu nzInDropDown>
+        <li nz-menu-item (click)="log('item1')">item1</li>
+        <li nz-menu-item (click)="log('item2')">item2</li>
+        <li nz-menu-item nzDisabled>禁用的item</li>
+      </ul>
+    </ng-template>
+    <span style="color:#fff;font-size: 14px;">右键菜单</span>
+  </div>
+</nz-card>
+
+<nz-card [nzTitle]="'按钮式的下拉框(菜单对齐方式)'">
+  <nz-dropdown [nzPlacement]="'bottomLeft'">
+    <button nz-button nz-dropdown>左下角</button>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+    </ul>
+  </nz-dropdown>
+  <nz-dropdown [nzPlacement]="'bottomCenter'">
+    <button nz-button nz-dropdown>下中</button>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+    </ul>
+  </nz-dropdown>
+  <nz-dropdown [nzPlacement]="'bottomRight'">
+    <button nz-button nz-dropdown>右下角</button>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+    </ul>
+  </nz-dropdown>
+  <nz-dropdown [nzPlacement]="'topLeft'">
+    <button nz-button nz-dropdown>左上角</button>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+    </ul>
+  </nz-dropdown>
+  <nz-dropdown [nzPlacement]="'topCenter'">
+    <button nz-button nz-dropdown>上中</button>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+    </ul>
+  </nz-dropdown>
+  <nz-dropdown [nzPlacement]="'topRight'">
+    <button nz-button nz-dropdown>右上角</button>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+    </ul>
+  </nz-dropdown>
+</nz-card>
+
+<nz-card [nzTitle]="'点击触发下拉框'">
+  <nz-dropdown [nzTrigger]="'click'">
+    <a nz-dropdown>点击我 <i nz-icon type="down"></i></a>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+      <li nz-submenu>
+        <span title>多级下拉框</span>
+        <ul>
+          <li nz-menu-item><a>菜单一</a></li>
+          <li nz-menu-item><a>菜单二</a></li>
+          <li nz-submenu>
+            <span title>多级下拉框</span>
+            <ul>
+              <li nz-menu-item><a>菜单一</a></li>
+              <li nz-menu-item><a>菜单二</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-dropdown>
+</nz-card>
+
+<nz-card [nzTitle]="'带下拉框的按钮'">
+  <nz-dropdown-button>
+    我是按钮下拉框
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+      <li nz-submenu>
+        <span title>多级下拉框</span>
+        <ul>
+          <li nz-menu-item><a>菜单一</a></li>
+          <li nz-menu-item><a>菜单二</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nz-dropdown-button>
+  <nz-dropdown>
+    <button nz-button nz-dropdown><span>带箭头的按钮下拉框</span><i nz-icon type="down"></i></button>
+    <ul nz-menu>
+      <li nz-menu-item>菜单一</li>
+      <li nz-menu-item>菜单二</li>
+      <li nz-menu-item>菜单三</li>
+      <li nz-submenu>
+        <span title>多级下拉框</span>
+        <ul>
+          <li nz-menu-item><a>菜单一</a></li>
+          <li nz-menu-item><a>菜单二</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nz-dropdown>
+</nz-card>
