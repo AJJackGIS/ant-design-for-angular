@@ -1,0 +1,6 @@
+<input type="text" [(ngModel)]="typedName">
+
+<!-- 其中event对应子组件属性，eventHandler对应父组件接收并处理子组件传来的方法，$event代表泛型类参数 -->
+<app-input-child [inputName]="typedName" (event)="eventHandler($event)"></app-input-child>
+
+从子组件传过来的数据：{{reviceName}}
