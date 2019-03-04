@@ -18,6 +18,7 @@ import { BroadcastReceiverHomeComponent } from './subscribe/broadcast-receiver-h
 import { PageComponent } from './rxjs/page/page.component';
 import { HttpPageComponent } from './http/http-page/http-page.component';
 import { RxjsLearnComponent } from './rxjs/rxjs-learn/rxjs-learn.component';
+import { FlipcardComponent } from './flipcard/flipcard/flipcard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -39,6 +40,7 @@ const routes: Routes = [
       { path: 'component/card', component: CardComponent },
       { path: 'component/dropdown', component: DropdownComponent },
       { path: 'component/menu', component: MenuComponent },
+      { path: 'component/flip', component: FlipcardComponent },
 
       { path: 'map/leaflet', component: LeafletComponent },
       { path: 'map/ol', component: OpenlayersComponent },

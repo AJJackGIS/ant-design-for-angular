@@ -36,6 +36,9 @@ import { HttpServiceService } from './http/http-service.service';
 import { HttpPageComponent } from './http/http-page/http-page.component';
 import { MyHttpInterceptor } from './Interceptor/my-http-interceptor';
 import { RxjsLearnComponent } from './rxjs/rxjs-learn/rxjs-learn.component';
+import { FlipcardComponent } from './flipcard/flipcard/flipcard.component';
+import { FlipbackComponent } from './flipcard/flipback/flipback.component';
+import { FlipfrontComponent } from './flipcard/flipfront/flipfront.component';
 
 registerLocaleData(zh);
 
@@ -63,7 +66,10 @@ registerLocaleData(zh);
     BroadcastReceiverHomeComponent,
     PageComponent,
     HttpPageComponent,
-    RxjsLearnComponent
+    RxjsLearnComponent,
+    FlipcardComponent,
+    FlipbackComponent,
+    FlipfrontComponent
   ],
   imports: [
     BrowserModule,

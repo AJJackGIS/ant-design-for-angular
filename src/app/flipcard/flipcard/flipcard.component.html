@@ -1,0 +1,14 @@
+<p>
+  flipcard works!
+</p>
+
+<!-- 翻转卡片 -->
+<nz-card class="flip-container" [ngClass]="{'flip': flipFlag}" nzTitle="翻转卡片" [nzExtra]="extraTemplate">
+  <div class="flipper">
+    <app-flipfront class="front"></app-flipfront>
+    <app-flipback class="back"></app-flipback>
+  </div>
+</nz-card>
+<ng-template #extraTemplate>
+  <button nz-button nzType="danger" (click)="flip()">翻转</button>
+</ng-template>
