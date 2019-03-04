@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, Observable, interval, of, from, timer, range, EMPTY, throwError, NEVER, merge, concat, forkJoin, race } from 'rxjs';
-import { take, map, filter, mapTo, takeLast, takeUntil, timeout, first, last, skip, skipLast, skipUntil, skipWhile, concatAll, mergeAll, switchAll, concatMap, mergeMap, switchMap, startWith } from 'rxjs/operators';
+import {
+  fromEvent, Observable, interval, of, from, timer, range, EMPTY, throwError, NEVER, merge,
+  concat, forkJoin, race, BehaviorSubject, ReplaySubject, AsyncSubject
+} from 'rxjs';
+import {
+  take, map, filter, mapTo, takeLast, takeUntil, timeout, first, last, skip, skipLast, skipUntil,
+  skipWhile, concatAll, mergeAll, switchAll, concatMap, mergeMap, switchMap, startWith, buffer, bufferTime,
+  bufferCount, bufferWhen, debounceTime, debounce, throttleTime, throttle, distinct, distinctUntilChanged, delay, delayWhen
+} from 'rxjs/operators';
 
 
 /**
@@ -31,7 +38,12 @@ export class RxjsLearnComponent implements OnInit {
     // this.fun_other();
     // this.fun_operator_3();
     // this.fun_operator_4();
-    this.fun_operator_5();
+    // this.fun_operator_5();
+    // this.fun_operator_6();
+    // this.fun_operator_7();
+    // this.fun_operator_8();
+    // this.fun_operator_9();
+    this.fun_operator_10();
   }
 
   fun_fromEvent() {
@@ -238,5 +250,127 @@ export class RxjsLearnComponent implements OnInit {
       .subscribe(
         winner => console.log(winner)
       );
+  }
+
+  // buffer 这一组操作符，数据汇聚的形式就是数组
+  fun_operator_6() {
+    interval(300).pipe(
+      take(20),
+      buffer(interval(1000)) //buffer 接收一个 Observable 作为 notifier，当 notifier 发出数据时，将 缓存的数据传给下游。
+    ).subscribe(item => console.log(item));
+
+    interval(300).pipe(
+      take(20),
+      bufferTime(1000) //bufferTime 是用时间来控制时机
+    ).subscribe(item => console.log(item));
+
+    interval(300).pipe(
+      take(20),
+      bufferCount(3) //bufferCount 是用数量来控制时机
+    ).subscribe(item => console.log(item));
+
+    interval(300).pipe(
+      take(20),
+      bufferWhen(() => { return interval(1000) })
+    ).subscribe(item => console.log(item));
+  }
+
+  fun_operator_7() {
+    var eleBtn = document.getElementById("btn");
+    fromEvent(eleBtn, 'click').pipe(debounceTime(2000)).subscribe(e => { // 隔多少时间后才能emit一次
+      console.log('隔2s才能才能触发一次');
+    });
+    fromEvent(eleBtn, 'click').pipe(debounce(() => interval(2000))).subscribe(e => {
+      console.log('隔2s才能才能触发一次');
+    });
+  }
+
+  fun_operator_8() {
+    var eleBtn = document.getElementById("btn");
+    fromEvent(eleBtn, 'click').pipe(throttleTime(2000)).subscribe(e => { // emit一次后隔多少时间后才能再emit
+      console.log('我被点击了');
+    });
+    fromEvent(eleBtn, 'click').pipe(throttle(() => interval(2000))).subscribe(e => {
+      console.log('每隔2s才能点击一次');
+    });
+  }
+
+  fun_operator_9() {
+    of(1, 1, 2, 2, 2, 1, 2, 3, 4, 3, 2, 1).pipe(
+      distinct() // 去重
+    ).subscribe(x => console.log(x)); // 1, 2, 3, 4
+
+    of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4).pipe(
+      distinctUntilChanged() // 跟上一个比较，去重
+    ).subscribe(x => console.log(x)); // 1, 2, 1, 2, 3, 4
+  }
+
+  fun_operator_10() {
+    fromEvent(document, 'click').pipe(delay(2000)).subscribe(x => console.log(x)); //延迟2s执行
+    fromEvent(document, 'click').pipe(delayWhen(event => interval(2000))).subscribe(x => console.log(x)); //延迟2s执行
+  }
+
+  // BehaviorSubject 需要在实例化时给定一个初始值，如果没有默认是 undefined，每次订阅时都会发出最新的状态，即使已经错过数据的发送时间
+  fun_subject_1() {
+    const observerA = {
+      next: (x: any) => console.log('Observer A: ' + x)
+    }
+    const observerB = {
+      next: (x: any) => console.log('Observer B: ' + x)
+    }
+    const subject = new BehaviorSubject(0);
+
+    subject.subscribe(observerA); // Observer A: 0
+    subject.next(1); // Observer A: 1
+    subject.next(2); // Observer A: 2
+    subject.next(3); // Observer A: 3
+    setTimeout(() => {
+      subject.subscribe(observerB) // Observer B: 3
+    }, 500);
+  }
+
+  // ReplaySubject 表示重放，在新的观察者订阅时重新发送原来的数据，可以通过参数指定重放最后几个数据
+  fun_subject_2() {
+    const observerA = {
+      next: (x: any) => console.log('Observer A: ' + x)
+    }
+    const observerB = {
+      next: (x: any) => console.log('Observer B: ' + x)
+    }
+    const subject = new ReplaySubject(2) // 重放最后两个
+
+    subject.subscribe(observerA);
+    subject.next(1); // Observer A: 1
+    subject.next(2); // Observer A: 2
+    subject.next(3); // Observer A: 3
+    subject.complete();
+
+    setTimeout(() => {
+      subject.subscribe(observerB)
+      // Observer B: 2
+      // Observer B: 3
+    }, 500)
+  }
+
+  // AsyncSubject 有点类似 operator last，会在 subject 完结后送出最后一个值
+  // observerA 即使早就订阅了，但是并不会响应前面的 next，完结后才接收到最后一个值 3
+  fun_subject_3() {
+    const observerA = {
+      next: (x: any) => console.log('Observer A: ' + x)
+    }
+    const observerB = {
+      next: (x: any) => console.log('Observer B: ' + x)
+    }
+    const subject = new AsyncSubject();
+
+    subject.subscribe(observerA);
+    subject.next(1);
+    subject.next(2);
+    subject.next(3);
+    subject.complete(); // Observer A: 3
+    setTimeout(() => {
+      subject.subscribe(observerB);  // Observer B: 3
+    }, 500)
+
   }
 }
