@@ -19,6 +19,7 @@ import { PageComponent } from './rxjs/page/page.component';
 import { HttpPageComponent } from './http/http-page/http-page.component';
 import { RxjsLearnComponent } from './rxjs/rxjs-learn/rxjs-learn.component';
 import { FlipcardComponent } from './flipcard/flipcard/flipcard.component';
+import { AxiosPageComponent } from './axios/axios-page/axios-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'rxjs', component: PageComponent },
       { path: 'rxjs-learn', component: RxjsLearnComponent },
       { path: 'http', component: HttpPageComponent },
+      { path: 'axios', component: AxiosPageComponent },
 
       { path: 'dashboard', component: DashboardComponent },
 

@@ -39,6 +39,7 @@ import { RxjsLearnComponent } from './rxjs/rxjs-learn/rxjs-learn.component';
 import { FlipcardComponent } from './flipcard/flipcard/flipcard.component';
 import { FlipbackComponent } from './flipcard/flipback/flipback.component';
 import { FlipfrontComponent } from './flipcard/flipfront/flipfront.component';
+import { AxiosPageComponent } from './axios/axios-page/axios-page.component';
 
 registerLocaleData(zh);
 
@@ -69,7 +70,8 @@ registerLocaleData(zh);
     RxjsLearnComponent,
     FlipcardComponent,
     FlipbackComponent,
-    FlipfrontComponent
+    FlipfrontComponent,
+    AxiosPageComponent
   ],
   imports: [
     BrowserModule,
